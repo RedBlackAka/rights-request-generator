@@ -1,0 +1,42 @@
+name: Build and Publish Docker Image
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-push:
+    name: Build and Push Image
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_PAT }}
+
+      - name: Build Docker image
+        run: |
+          docker build \
+            --tag ghcr.io/kf637/rights-request-generator:${{ github.sha }} \
+            --tag ghcr.io/kf637/rights-request-generator:latest \
+            .
+
+      - name: Push Docker image (commit SHA tag)
+        run: |
+          docker push ghcr.io/kf637/rights-request-generator:${{ github.sha }}
+
+      - name: Push Docker image (latest tag)
+        run: |
+          docker push ghcr.io/kf637/rights-request-generator:latest
