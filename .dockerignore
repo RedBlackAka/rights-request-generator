@@ -1,0 +1,21 @@
+# Ignore git-related files
+.git
+.gitignore
+
+# Ignore GitHub workflows
+.github/
+
+# Node modules and lock files (if tooling added)
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Local tooling caches
+npm-debug.log
+yarn-error.log
+
+# Editor settings
+.vscode/
+.idea/
+.DS_Store
