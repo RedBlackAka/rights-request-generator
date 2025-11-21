@@ -29,14 +29,14 @@ jobs:
       - name: Build Docker image
         run: |
           docker build \
-            --tag ghcr.io/kf637/rights-request-generator:${{ github.sha }} \
-            --tag ghcr.io/kf637/rights-request-generator:latest \
+            --tag ghcr.io/kf637/rights-request-generator-no-eu:${{ github.sha }} \
+            --tag ghcr.io/kf637/rights-request-generator-no-eu:latest \
             .
 
       - name: Push Docker image (commit SHA tag)
         run: |
-          docker push ghcr.io/kf637/rights-request-generator:${{ github.sha }}
+          docker push ghcr.io/kf637/rights-request-generator-no-eu:${{ github.sha }}
 
       - name: Push Docker image (latest tag)
         run: |
-          docker push ghcr.io/kf637/rights-request-generator:latest
+          docker push ghcr.io/kf637/rights-request-generator-no-eu:latest
