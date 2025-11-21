@@ -81,11 +81,15 @@ body {
   border-color: rgba(94, 234, 212, 0.75);
 }
 
+.language-switcher select::-ms-expand {
+  display: none;
+}
+
 .language-switcher::after {
   content: "";
   position: absolute;
-  right: 28px;
-  bottom: 28px;
+  right: 32px;
+  top: calc(50% + 6px);
   width: 10px;
   height: 10px;
   border-right: 2px solid rgba(148, 163, 184, 0.8);

@@ -583,14 +583,30 @@ function renderAngrerettPreview() {
   const placeholders = angrerettPlaceholders;
 
   const company = fallback(angrerettState.companyName, placeholders.companyName || "[Company]");
-  const account = fallback(angrerettState.accountRef, placeholders.accountRef || "[Reference]");
+  const accountRaw = typeof angrerettState.accountRef === "string" ? angrerettState.accountRef.trim() : "";
   const agreementDate = formatDate(angrerettState.agreementDate) || placeholders.agreementDate || "[Agreement date]";
-  const itemDescription = fallback(angrerettState.itemDescription, placeholders.itemDescription || "[Item]");
   const customer = fallback(angrerettState.customerName, placeholders.customerName || "[Name]");
   const today = formatDate(angrerettState.todayDate) || placeholders.todayDate || "[Date]";
   const deliveryDateFormatted = formatDate(angrerettState.deliveryDate);
   const deliverySegment = deliveryDateFormatted && typeof templates.deliverySegment === "string"
     ? applyTemplate(templates.deliverySegment, { deliveryDate: deliveryDateFormatted })
+    : "";
+  const itemDescriptionRaw = typeof angrerettState.itemDescription === "string" ? angrerettState.itemDescription.trim() : "";
+
+  const purchaseAccountSegment = accountRaw
+    ? applyTemplate(templates.purchaseAccountSegment || " (referanse: {{account}})", { account: accountRaw })
+    : "";
+
+  const serviceAccountSegment = accountRaw
+    ? applyTemplate(templates.serviceAccountSegment || " (konto: {{account}})", { account: accountRaw })
+    : "";
+
+  const purchaseItemBlock = itemDescriptionRaw
+    ? `${applyTemplate(templates.purchaseItemLine || "The purchase concerns {{itemDescription}}.", { itemDescription: itemDescriptionRaw })}\n\n`
+    : "";
+
+  const serviceItemSegment = itemDescriptionRaw
+    ? applyTemplate(templates.serviceItemSegment || " covering {{itemDescription}}", { itemDescription: itemDescriptionRaw })
     : "";
 
   const templateKey = angrerettState.agreementType === "purchase" ? "purchase" : "service";
@@ -598,12 +614,13 @@ function renderAngrerettPreview() {
 
   const letter = applyTemplate(templateString, {
     company,
-    account,
     agreementDate,
-    itemDescription,
     customer,
     today,
     deliverySegment,
+    accountSegment: templateKey === "purchase" ? purchaseAccountSegment : serviceAccountSegment,
+    purchaseItemBlock,
+    serviceItemSegment,
   });
 
   angrerettPreview.textContent = letter;
