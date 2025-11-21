@@ -148,10 +148,6 @@
                 <label for="angrerett-company" data-i18n="angrerett.form.companyName.label">Selger eller tjenesteyter</label>
                 <input id="angrerett-company" name="companyName" type="text" placeholder="Eksempel AS" autocomplete="organization" data-i18n-placeholder="angrerett.form.companyName.placeholder">
               </div>
-              <div class="form-group">
-                <label for="angrerett-account" data-i18n="angrerett.form.accountRef.label">Konto/Kundereferanse</label>
-                <input id="angrerett-account" name="accountRef" type="text" placeholder="E-post eller kundenummer" data-i18n-placeholder="angrerett.form.accountRef.placeholder">
-              </div>
             </div>
           </fieldset>
 
@@ -162,13 +158,22 @@
                 <label for="angrerett-item" data-i18n="angrerett.form.itemDescription.label">Produkt eller tjeneste (valgfritt)</label>
                 <input id="angrerett-item" name="itemDescription" type="text" placeholder="Beskrivelse av varen eller tjenesten" data-i18n-placeholder="angrerett.form.itemDescription.placeholder">
               </div>
-              <div class="form-group">
-                <label for="angrerett-delivery" data-i18n="angrerett.form.deliveryDate.label">Dato for mottak/oppstart (valgfritt)</label>
-                <input id="angrerett-delivery" name="deliveryDate" type="date">
-              </div>
             </div>
           </fieldset>
 
+          <fieldset class="form-fieldset">
+            <legend data-i18n="angrerett.form.sections.customer">Deg</legend>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="angrerett-name" data-i18n="angrerett.form.customerName.label">Navn</label>
+                <input id="angrerett-name" name="customerName" type="text" placeholder="Ola Nordmann" autocomplete="name" data-i18n-placeholder="angrerett.form.customerName.placeholder">
+              </div>
+              <div class="form-group">
+                <label for="angrerett-account" data-i18n="angrerett.form.accountRef.label">Konto/Kundereferanse</label>
+                <input id="angrerett-account" name="accountRef" type="text" placeholder="E-post eller kundenummer" data-i18n-placeholder="angrerett.form.accountRef.placeholder">
+              </div>
+            </div>
+          </fieldset>
           <fieldset class="form-fieldset">
             <legend data-i18n="angrerett.form.sections.customer">Deg</legend>
             <div class="form-grid">

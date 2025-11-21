@@ -85,6 +85,10 @@
       "requestDate": "[Date]"
     },
     "templates": {
+      "labels": {
+        "datePrefix": "Date: ",
+        "recipientHeading": "To:"
+      },
       "information": {
         "subjectLine": "Subject: Right of access under GDPR Article 14",
         "intro": "I am contacting you to exercise my right to information under the General Data Protection Regulation (GDPR) Article 14, which covers personal data about me obtained from sources other than myself.",
@@ -153,9 +157,6 @@
         "label": "Product or service (optional)",
         "placeholder": "Description of the item or service"
       },
-      "deliveryDate": {
-        "label": "Date of delivery / start (optional)"
-      },
       "customerName": {
         "label": "Name",
         "placeholder": "Jane Doe"
@@ -184,15 +185,15 @@
       "companyName": "[Seller/service provider]",
       "accountRef": "[Customer reference]",
       "agreementDate": "[Agreement date]",
-      "deliveryDate": "[Delivery date]",
       "itemDescription": "[Product or service]",
       "customerName": "[Name]",
       "todayDate": "[Date]"
     },
     "templates": {
-      "service": "Hello,\n\nI refer to my agreement with {{company}}{{accountSegment}}{{serviceItemSegment}}, entered into on {{agreementDate}}.\n\nUnder the Norwegian Right of Withdrawal Act of 20 June 2014 no. 27, I hereby unequivocally exercise my right of withdrawal and terminate the agreement, cf. section 20 first paragraph.\n\nI request that the agreement be considered cancelled from the time this notice is received and that any amounts paid be refunded in accordance with the Act. Please confirm in writing that my withdrawal has been registered, and confirm the refund and termination of the subscription.\n\nIf you require a specific form or any additional information to complete the process, please send it to me without undue delay.\n\nKind regards\n{{customer}}\n{{today}}",
-      "purchase": "Hello,\n\nI refer to my purchase from {{company}}{{accountSegment}}, ordered on {{agreementDate}}{{deliverySegment}}.\n\n{{purchaseItemBlock}}Under the Norwegian Right of Withdrawal Act of 20 June 2014 no. 27, I hereby exercise the right of withdrawal and rescind the purchase, cf. section 20 first paragraph.\n\nI request that the purchase be cancelled and that a refund is provided without undue delay and no later than 14 days, cf. sections 24 and 26. Please let me know how to return the goods in accordance with section 25.\n\nIf you require any additional information or a specific withdrawal form, please send it to me immediately.\n\nKind regards\n{{customer}}\n{{today}}",
-      "deliverySegment": ", received {{deliveryDate}}",
+      "service": "Hello,\n\nI refer to my agreement with {{company}}{{accountSegment}}{{serviceItemSegment}}{{serviceAgreementSegment}}.\n\nUnder the Norwegian Right of Withdrawal Act of 20 June 2014 no. 27, I hereby unequivocally exercise my right of withdrawal and terminate the agreement, cf. section 20 first paragraph.\n\nI request that the agreement be considered cancelled from the time this notice is received and that any amounts paid be refunded in accordance with the Act. Please confirm in writing that my withdrawal has been registered, and confirm the refund and termination of the subscription.\n\nIf you require a specific form or any additional information to complete the process, please send it to me without undue delay.\n\nKind regards\n{{customer}}\n{{today}}",
+      "purchase": "Hello {{company}}{{accountSegment}},\n\nI refer to my purchase with you{{purchaseTimingSegment}}.\n\n{{purchaseItemBlock}}Under the Norwegian Right of Withdrawal Act of 20 June 2014 no. 27, I hereby exercise the right of withdrawal and rescind the purchase, cf. section 20 first paragraph.\n\nI request that the purchase be cancelled and that a refund is provided without undue delay and no later than 14 days, cf. sections 24 and 26. Please let me know how to return the goods in accordance with section 25.\n\nIf you require any additional information or a specific withdrawal form, please send it to me immediately.\n\nKind regards\n{{customer}}\n{{today}}",
+      "serviceAgreementSegment": ", entered on {{agreementDate}}",
+      "purchaseAgreementSegment": "ordered on {{agreementDate}}",
       "serviceAccountSegment": " (account: {{account}})",
       "purchaseAccountSegment": " (reference: {{account}})",
       "serviceItemSegment": " covering {{itemDescription}}",

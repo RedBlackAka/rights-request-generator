@@ -85,6 +85,10 @@
       "requestDate": "[Dato]"
     },
     "templates": {
+      "labels": {
+        "datePrefix": "Dato: ",
+        "recipientHeading": "Til:"
+      },
       "information": {
         "subjectLine": "Emne: Innsynsrett etter personvernforordningen artikkel 14",
         "intro": "Jeg kontakter dere for å utøve min rett til informasjon etter personvernforordningen (GDPR) artikkel 14, som gjelder innsamling av personopplysninger om meg fra andre kilder enn meg selv.",
@@ -153,9 +157,6 @@
         "label": "Produkt eller tjeneste (valgfritt)",
         "placeholder": "Beskrivelse av varen eller tjenesten"
       },
-      "deliveryDate": {
-        "label": "Dato for mottak/oppstart (valgfritt)"
-      },
       "customerName": {
         "label": "Navn",
         "placeholder": "Ola Nordmann"
@@ -184,15 +185,15 @@
       "companyName": "[Selger/tjenesteyter]",
       "accountRef": "[Kundereferanse]",
       "agreementDate": "[Dato for avtale/kjøp]",
-      "deliveryDate": "[Dato for mottak]",
       "itemDescription": "[Produkt eller tjeneste]",
       "customerName": "[Navn]",
       "todayDate": "[Dato]"
     },
     "templates": {
-      "service": "Hei,\n\nJeg viser til min avtale med {{company}}{{accountSegment}}{{serviceItemSegment}}, inngått den {{agreementDate}}.\n\nI henhold til angrerettloven av 20. juni 2014 nr. 27 meddeler jeg herved utvetydig at jeg utøver min angrerett og dermed trer tilbake fra avtalen, jf. lovens § 20 første ledd.\n\nJeg ber om at avtalen anses hevet fra det tidspunkt denne meddelelsen er mottatt, og at alle eventuelt innbetalte beløp tilbakeføres i samsvar med angrerettlovens bestemmelser. Videre ber jeg om skriftlig bekreftelse på at min melding om tilbaketreden er registrert, samt bekreftelse på tilbakebetaling og avslutning av abonnementet.\n\nDersom det kreves utfylling av et særskilt skjema eller ytterligere informasjon for å fullføre prosessen, ber jeg om at dette blir oversendt uten ugrunnet opphold.\n\nMed vennlig hilsen\n{{customer}}\n{{today}}",
-      "purchase": "Hei,\n\nJeg viser til mitt kjøp hos {{company}}{{accountSegment}}, bestilt den {{agreementDate}}{{deliverySegment}}.\n\n{{purchaseItemBlock}}I henhold til angrerettloven av 20. juni 2014 nr. 27 meddeler jeg herved at jeg utøver angreretten og går tilbake på kjøpet, jf. § 20 første ledd.\n\nJeg ber om at kjøpet annulleres og at tilbakebetaling skjer uten ugrunnet opphold og senest innen 14 dager, jf. §§ 24 og 26. Vennligst oppgi praktisk informasjon om hvordan varen skal returneres, i tråd med § 25.\n\nDersom dere trenger ytterligere opplysninger eller krever utfylling av et angrerettskjema, ber jeg om at dette sendes meg umiddelbart.\n\nMed vennlig hilsen\n{{customer}}\n{{today}}",
-      "deliverySegment": ", mottatt {{deliveryDate}}",
+      "service": "Hei {{company}}{{accountSegment}},\n\nJeg viser til min inngåtte avtale om abonnement/tjeneste hos dere{{serviceItemSegment}}{{serviceAgreementSegment}}.\n\nI henhold til angrerettloven av 20. juni 2014 nr. 27 meddeler jeg herved utvetydig at jeg utøver min angrerett og dermed trer tilbake fra avtalen, jf. lovens § 20 første ledd.\n\nJeg ber om at avtalen anses hevet fra det tidspunkt denne meddelelsen er mottatt, og at alle eventuelt innbetalte beløp tilbakeføres i samsvar med angrerettlovens bestemmelser. Videre ber jeg om skriftlig bekreftelse på at min melding om tilbaketreden er registrert, samt bekreftelse på tilbakebetaling og avslutning av abonnementet.\n\nDersom det kreves utfylling av et særskilt skjema eller ytterligere informasjon for å fullføre prosessen, ber jeg om at dette blir oversendt uten ugrunnet opphold.\n\nMed vennlig hilsen\n{{customer}}\n{{today}}",
+      "purchase": "Hei {{company}}{{accountSegment}},\n\nJeg viser til mitt kjøp hos dere{{purchaseTimingSegment}}.\n\n{{purchaseItemBlock}}I henhold til angrerettloven av 20. juni 2014 nr. 27 meddeler jeg herved at jeg utøver angreretten og går tilbake på kjøpet, jf. § 20 første ledd.\n\nJeg ber om at kjøpet annulleres og at tilbakebetaling skjer uten ugrunnet opphold og senest innen 14 dager, jf. §§ 24 og 26. Vennligst oppgi praktisk informasjon om hvordan varen skal returneres, i tråd med § 25.\n\nDersom dere trenger ytterligere opplysninger eller krever utfylling av et angrerettskjema, ber jeg om at dette sendes meg umiddelbart.\n\nMed vennlig hilsen\n{{customer}}\n{{today}}",
+      "serviceAgreementSegment": ", inngått den {{agreementDate}}",
+      "purchaseAgreementSegment": "bestilt den {{agreementDate}}",
       "serviceAccountSegment": " (konto: {{account}})",
       "purchaseAccountSegment": " (referanse: {{account}})",
       "serviceItemSegment": " om {{itemDescription}}",

@@ -31,7 +31,6 @@ const angrerettState = {
   companyName: "",
   accountRef: "",
   agreementDate: "",
-  deliveryDate: "",
   itemDescription: "",
   customerName: "",
   todayDate: todayIso,
@@ -461,6 +460,49 @@ function renderGdprPreview() {
     dataSource,
   };
 
+  const templateLabels = templates.labels || {};
+  const datePrefix = typeof templateLabels.datePrefix === "string" ? templateLabels.datePrefix : "";
+  const recipientHeading = typeof templateLabels.recipientHeading === "string" ? templateLabels.recipientHeading : "";
+
+  const senderBlock = [subjectName, subjectAddress].filter(Boolean).join("\n");
+  const headerSegments = [];
+
+  if (senderBlock) {
+    headerSegments.push(senderBlock);
+  }
+
+  if (requestDate) {
+    if (headerSegments.length > 0) {
+      headerSegments.push("");
+    }
+    const dateLine = `${datePrefix}${requestDate}`.trim();
+    if (dateLine) {
+      headerSegments.push(dateLine);
+    }
+  }
+
+  if (controllerBlock) {
+    if (headerSegments.length > 0) {
+      headerSegments.push("");
+    }
+    const recipientLine = recipientHeading.trim();
+    if (recipientLine) {
+      headerSegments.push(recipientLine);
+    }
+    headerSegments.push(controllerBlock);
+  }
+
+  const segments = [...headerSegments];
+  const pushParagraph = (text) => {
+    if (!text) {
+      return;
+    }
+    if (segments.length > 0 && segments[segments.length - 1] !== "") {
+      segments.push("");
+    }
+    segments.push(text);
+  };
+
   if (requestType === "erasure" && erasureTemplate) {
     const referenceLine = referenceId && typeof erasureTemplate.referenceLine === "string"
       ? applyTemplate(erasureTemplate.referenceLine, templateContext).trim()
@@ -473,34 +515,13 @@ function renderGdprPreview() {
       : [];
 
     const signoff = erasureTemplate.signoff || infoTemplate.signoff || "";
-    const segments = [subjectName, subjectAddress, "", requestDate];
 
-    if (controllerBlock) {
-      segments.push("");
-      segments.push(controllerBlock);
-    }
+    pushParagraph(erasureTemplate.subjectLine);
+    pushParagraph(referenceLine);
+    paragraphs.forEach((paragraph) => pushParagraph(paragraph));
+    pushParagraph(signoff);
+    pushParagraph(subjectName);
 
-    if (erasureTemplate.subjectLine) {
-      segments.push("");
-      segments.push(erasureTemplate.subjectLine);
-    }
-
-    if (referenceLine) {
-      segments.push("");
-      segments.push(referenceLine);
-    }
-
-    paragraphs.forEach((paragraph) => {
-      segments.push("");
-      segments.push(paragraph);
-    });
-
-    if (signoff) {
-      segments.push("");
-      segments.push(signoff);
-    }
-
-    segments.push(subjectName);
     gdprPreview.textContent = segments.join("\n");
     return;
   }
@@ -523,49 +544,14 @@ function renderGdprPreview() {
         .filter(Boolean)
     : [];
 
-  const segments = [subjectName, subjectAddress, "", requestDate];
-
-  if (controllerBlock) {
-    segments.push("");
-    segments.push(controllerBlock);
-  }
-
-  if (infoTemplate.subjectLine) {
-    segments.push("");
-    segments.push(infoTemplate.subjectLine);
-  }
-
-  if (infoTemplate.intro) {
-    segments.push("");
-    segments.push(infoTemplate.intro);
-  }
-
-  if (referenceLine) {
-    segments.push("");
-    segments.push(referenceLine);
-  }
-
-  if (infoTemplate.requestListIntro) {
-    segments.push("");
-    segments.push(infoTemplate.requestListIntro);
-  }
-
-  if (bulletList) {
-    segments.push("");
-    segments.push(bulletList);
-  }
-
-  postListParagraphs.forEach((paragraph) => {
-    segments.push("");
-    segments.push(paragraph);
-  });
-
-  if (infoTemplate.signoff) {
-    segments.push("");
-    segments.push(infoTemplate.signoff);
-  }
-
-  segments.push(subjectName);
+  pushParagraph(infoTemplate.subjectLine);
+  pushParagraph(infoTemplate.intro);
+  pushParagraph(referenceLine);
+  pushParagraph(infoTemplate.requestListIntro);
+  pushParagraph(bulletList);
+  postListParagraphs.forEach((paragraph) => pushParagraph(paragraph));
+  pushParagraph(infoTemplate.signoff);
+  pushParagraph(subjectName);
 
   gdprPreview.textContent = segments.join("\n");
 }
@@ -584,13 +570,11 @@ function renderAngrerettPreview() {
 
   const company = fallback(angrerettState.companyName, placeholders.companyName || "[Company]");
   const accountRaw = typeof angrerettState.accountRef === "string" ? angrerettState.accountRef.trim() : "";
-  const agreementDate = formatDate(angrerettState.agreementDate) || placeholders.agreementDate || "[Agreement date]";
+  const agreementDateFormatted = formatDate(angrerettState.agreementDate);
   const customer = fallback(angrerettState.customerName, placeholders.customerName || "[Name]");
   const today = formatDate(angrerettState.todayDate) || placeholders.todayDate || "[Date]";
-  const deliveryDateFormatted = formatDate(angrerettState.deliveryDate);
-  const deliverySegment = deliveryDateFormatted && typeof templates.deliverySegment === "string"
-    ? applyTemplate(templates.deliverySegment, { deliveryDate: deliveryDateFormatted })
-    : "";
+  const deliverySegmentRaw = "";
+  const deliverySegmentSolo = "";
   const itemDescriptionRaw = typeof angrerettState.itemDescription === "string" ? angrerettState.itemDescription.trim() : "";
 
   const purchaseAccountSegment = accountRaw
@@ -609,15 +593,28 @@ function renderAngrerettPreview() {
     ? applyTemplate(templates.serviceItemSegment || " covering {{itemDescription}}", { itemDescription: itemDescriptionRaw })
     : "";
 
+  const serviceAgreementSegment = agreementDateFormatted
+    ? applyTemplate(templates.serviceAgreementSegment || ", entered on {{agreementDate}}", { agreementDate: agreementDateFormatted })
+    : "";
+
+  const purchaseAgreementBase = agreementDateFormatted
+    ? applyTemplate(templates.purchaseAgreementSegment || "ordered on {{agreementDate}}", { agreementDate: agreementDateFormatted })
+    : "";
+
+  let purchaseTimingSegment = "";
+  if (purchaseAgreementBase) {
+    purchaseTimingSegment = ` ${purchaseAgreementBase}`;
+  }
+
   const templateKey = angrerettState.agreementType === "purchase" ? "purchase" : "service";
   const templateString = typeof templates[templateKey] === "string" ? templates[templateKey] : "";
 
   const letter = applyTemplate(templateString, {
     company,
-    agreementDate,
     customer,
     today,
-    deliverySegment,
+    serviceAgreementSegment,
+    purchaseTimingSegment,
     accountSegment: templateKey === "purchase" ? purchaseAccountSegment : serviceAccountSegment,
     purchaseItemBlock,
     serviceItemSegment,
