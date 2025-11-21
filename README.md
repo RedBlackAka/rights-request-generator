@@ -33,7 +33,7 @@ A Dockerfile is provided to host the static site with nginx.
 
 ```bash
 docker build -t ghcr.io/kf637/rights-request-generator .
-docker run -p 3000:3000 ghcr.io/kf637/rights-request-generator
+docker run -p 3000:80 ghcr.io/kf637/rights-request-generator
 ```
 
 Visit `http://localhost:3000` to use the generator.
