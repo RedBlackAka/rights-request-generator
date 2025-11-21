@@ -15,8 +15,8 @@ Generate GDPR Article 14/17 requests and Norwegian right-to-cancel (Angrerett) l
 1. Clone and enter the repository:
 
    ```bash
-   git clone https://github.com/Kf637/right-to-cancel-norway-and-gdpr-template.git
-   cd right-to-cancel-norway-and-gdpr-template
+   git clone https://github.com/Kf637/rights-request-generator.git
+   cd rights-request-generator
    ```
 
 2. Serve the static site. You can use any static file server; for example:
@@ -38,7 +38,6 @@ docker run -p 8080:80 ghcr.io/kf637/rights-request-generator
 
 Visit `http://localhost:8080` to use the generator.
 
-GitHub Actions can build and push the image to GHCR via `.github/workflows/docker-publish.yml`. The workflow expects a `GHCR_PAT` secret with `read:packages` and `write:packages` scopes.
 
 ## Localization
 
