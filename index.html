@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rights Request Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="page-header">
+    <h1 data-i18n="app.title">Rights Request Generator</h1>
+    <p data-i18n="app.tagline">Create privacy and consumer rights letters without storing any of your data.</p>
+    <div class="language-switcher">
+      <label for="language-select" id="language-select-label" data-i18n="app.languageLabel">Language</label>
+      <select id="language-select" aria-labelledby="language-select-label" disabled>
+        <option value="loading">Loading...</option>
+      </select>
+    </div>
+  </header>
+
+  <nav class="template-tabs" aria-label="Letter types" data-i18n-aria="app.tabNavAria">
+    <button class="tab-button active" data-template="gdpr">
+      <span class="tab-title" data-i18n="tabs.gdpr">GDPR Rights</span>
+      <span class="tab-subtitle" data-i18n="tabs.gdprSubtitle">Art. 14 & 17 letters</span>
+    </button>
+    <button class="tab-button" data-template="angrerett">
+      <span class="tab-title" data-i18n="tabs.angrerett">Angrerett (Norway)</span>
+      <span class="tab-subtitle" data-i18n="tabs.angrerettSubtitle">Right to cancel</span>
+    </button>
+  </nav>
+
+  <main id="template-area">
+    <section id="gdpr" class="template-panel active" aria-labelledby="gdpr-heading">
+      <div class="panel-header">
+        <h2 id="gdpr-heading" data-i18n="gdpr.heading">GDPR Art. 14 Information Request</h2>
+        <p data-i18n="gdpr.description">Ask an organization to disclose information collected about you from other sources, as required by GDPR Article 14.</p>
+      </div>
+      <div class="panel-body">
+        <form class="input-form" aria-label="GDPR request details" data-i18n-aria="gdpr.formAria">
+          <fieldset class="form-fieldset">
+            <legend data-i18n="gdpr.form.sections.request">Request setup</legend>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="gdpr-request-type" data-i18n="gdpr.form.requestType.label">Request type</label>
+                <select id="gdpr-request-type" name="requestType"></select>
+              </div>
+              <div class="form-group">
+                <label for="gdpr-date" data-i18n="gdpr.form.requestDate.label">Date</label>
+                <input id="gdpr-date" name="requestDate" type="date" data-default-today="true">
+              </div>
+              <div class="form-group">
+                <label for="gdpr-reference" data-i18n="gdpr.form.referenceId.label">Account or Reference (optional)</label>
+                <input id="gdpr-reference" name="referenceId" type="text" placeholder="Account 12345" data-i18n-placeholder="gdpr.form.referenceId.placeholder">
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-fieldset">
+            <legend data-i18n="gdpr.form.sections.subject">About you</legend>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="gdpr-subject-name" data-i18n="gdpr.form.subjectName.label">Your Name</label>
+                <input id="gdpr-subject-name" name="subjectName" type="text" placeholder="Ola Nordmann" autocomplete="name" data-i18n-placeholder="gdpr.form.subjectName.placeholder">
+              </div>
+              <div class="form-group form-group--textarea">
+                <label for="gdpr-subject-address" data-i18n="gdpr.form.subjectAddress.label">Your Address</label>
+                <textarea id="gdpr-subject-address" name="subjectAddress" rows="3" placeholder="Street 2
+1234 City" data-i18n-placeholder="gdpr.form.subjectAddress.placeholder"></textarea>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-fieldset">
+            <legend data-i18n="gdpr.form.sections.controller">About the controller</legend>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="gdpr-controller" data-i18n="gdpr.form.controllerName.label">Organization or Data Controller</label>
+                <input id="gdpr-controller" name="controllerName" type="text" placeholder="Example Corp" autocomplete="organization" data-i18n-placeholder="gdpr.form.controllerName.placeholder">
+              </div>
+              <div class="form-group">
+                <label for="gdpr-contact" data-i18n="gdpr.form.controllerEmail.label">Contact Email (optional)</label>
+                <input id="gdpr-contact" name="controllerEmail" type="email" placeholder="privacy@example.com" autocomplete="email" data-i18n-placeholder="gdpr.form.controllerEmail.placeholder">
+              </div>
+              <div class="form-group form-group--textarea">
+                <label for="gdpr-controller-address" data-i18n="gdpr.form.controllerAddress.label">Controller Address</label>
+                <textarea id="gdpr-controller-address" name="controllerAddress" rows="2" placeholder="Street 1
+1234 City" data-i18n-placeholder="gdpr.form.controllerAddress.placeholder"></textarea>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-fieldset">
+            <legend data-i18n="gdpr.form.sections.context">Additional details</legend>
+            <div class="form-grid">
+              <div class="form-group form-group--textarea">
+                <label for="gdpr-source" data-i18n="gdpr.form.dataSource.label">How they obtained your data (if known)</label>
+                <textarea id="gdpr-source" name="dataSource" rows="2" placeholder="e.g. purchased from marketing list" data-i18n-placeholder="gdpr.form.dataSource.placeholder"></textarea>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+        <section class="preview" aria-live="polite" aria-label="GDPR request preview" data-i18n-aria="gdpr.previewAria">
+          <div class="preview-toolbar">
+            <button type="button" class="copy-button" data-copy-target="gdpr-preview" data-i18n-copy="gdpr.copyButtonLabel">Copy letter</button>
+          </div>
+          <pre id="gdpr-preview" class="preview-text" tabindex="0"></pre>
+        </section>
+      </div>
+      <footer class="panel-footer">
+        <h3 data-i18n="gdpr.legal.heading">Legal references</h3>
+        <ul data-i18n-list="gdpr.legal.items">
+          <li>General Data Protection Regulation (EU) 2016/679, Article 14</li>
+          <li>Article 12: transparency and modalities for exercise of rights</li>
+          <li>Article 15: right of access by the data subject (supporting request)</li>
+        </ul>
+      </footer>
+    </section>
+
+    <section id="angrerett" class="template-panel" aria-labelledby="angrerett-heading">
+      <div class="panel-header">
+        <h2 id="angrerett-heading" data-i18n="angrerett.heading">Norwegian Right to Cancel (Angrerett)</h2>
+        <p data-i18n="angrerett.description">Generate a cancellation notice under the Norwegian Right of Withdrawal Act (Angrerettloven).</p>
+      </div>
+      <div class="panel-body">
+        <form class="input-form" aria-label="Angrerett details" data-i18n-aria="angrerett.formAria">
+          <fieldset class="form-fieldset">
+            <legend data-i18n="angrerett.form.sections.request">Avtaledetaljer</legend>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="angrerett-type" data-i18n="angrerett.form.agreementType.label">Type of agreement</label>
+                <select id="angrerett-type" name="agreementType"></select>
+              </div>
+              <div class="form-group">
+                <label for="angrerett-date" data-i18n="angrerett.form.agreementDate.label">Dato for avtale/kjøp</label>
+                <input id="angrerett-date" name="agreementDate" type="date">
+              </div>
+              <div class="form-group">
+                <label for="angrerett-today" data-i18n="angrerett.form.todayDate.label">Dato i dag</label>
+                <input id="angrerett-today" name="todayDate" type="date" data-default-today="true">
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-fieldset">
+            <legend data-i18n="angrerett.form.sections.partner">Selger/tjenesteyter</legend>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="angrerett-company" data-i18n="angrerett.form.companyName.label">Selger eller tjenesteyter</label>
+                <input id="angrerett-company" name="companyName" type="text" placeholder="Eksempel AS" autocomplete="organization" data-i18n-placeholder="angrerett.form.companyName.placeholder">
+              </div>
+              <div class="form-group">
+                <label for="angrerett-account" data-i18n="angrerett.form.accountRef.label">Konto/Kundereferanse</label>
+                <input id="angrerett-account" name="accountRef" type="text" placeholder="E-post eller kundenummer" data-i18n-placeholder="angrerett.form.accountRef.placeholder">
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-fieldset">
+            <legend data-i18n="angrerett.form.sections.purchase">Kjøpsdetaljer</legend>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="angrerett-item" data-i18n="angrerett.form.itemDescription.label">Produkt eller tjeneste (valgfritt)</label>
+                <input id="angrerett-item" name="itemDescription" type="text" placeholder="Beskrivelse av varen eller tjenesten" data-i18n-placeholder="angrerett.form.itemDescription.placeholder">
+              </div>
+              <div class="form-group">
+                <label for="angrerett-delivery" data-i18n="angrerett.form.deliveryDate.label">Dato for mottak/oppstart (valgfritt)</label>
+                <input id="angrerett-delivery" name="deliveryDate" type="date">
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-fieldset">
+            <legend data-i18n="angrerett.form.sections.customer">Deg</legend>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="angrerett-name" data-i18n="angrerett.form.customerName.label">Navn</label>
+                <input id="angrerett-name" name="customerName" type="text" placeholder="Ola Nordmann" autocomplete="name" data-i18n-placeholder="angrerett.form.customerName.placeholder">
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="form-hint" data-i18n="angrerett.formHint">Ingen av opplysningene lagres. Brevet genereres kun i nettleseren din.</div>
+        </form>
+        <section class="preview" aria-live="polite" aria-label="Angrerettbrev forhåndsvisning" data-i18n-aria="angrerett.previewAria">
+          <div class="preview-toolbar">
+            <button type="button" class="copy-button" data-copy-target="angrerett-preview" data-i18n-copy="angrerett.copyButtonLabel">Kopier brev</button>
+          </div>
+          <pre id="angrerett-preview" class="preview-text" tabindex="0"></pre>
+        </section>
+      </div>
+      <footer class="panel-footer">
+        <h3 data-i18n="angrerett.legal.heading">Rettslig grunnlag</h3>
+        <ul data-i18n-list="angrerett.legal.items">
+          <li>Angrerettloven av 20. juni 2014 nr. 27 § 20 første ledd (rett til å gå fra avtalen)</li>
+          <li>§ 24 (tilbakebetaling ved bruk av angrerett)</li>
+          <li>§ 25 (forbrukerens plikt til å levere tilbake varer ved angring)</li>
+          <li>§ 26 (selgers plikt til tilbakebetaling)</li>
+        </ul>
+      </footer>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <p data-i18n="app.footerNote">Nothing is stored or sent to a server. Everything you type stays in your browser.</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

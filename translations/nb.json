@@ -1,0 +1,203 @@
+{
+  "languageName": "Norsk (Bokmål)",
+  "dateLocale": "nb-NO",
+  "app": {
+    "pageTitle": "Brevgenerator for rettigheter",
+    "title": "Brevgenerator for rettigheter",
+    "tagline": "Lag personvern- og angrerettbrev uten at informasjonen din lagres.",
+    "languageLabel": "Språk",
+    "tabNavAria": "Velg brevmalskategori",
+    "footerNote": "Ingenting lagres eller sendes til en server. Alt du skriver blir kun i nettleseren din."
+  },
+  "tabs": {
+    "gdpr": "GDPR-rettigheter",
+    "gdprSubtitle": "Art. 14 og 17",
+    "angrerett": "Angrerett (Norge)",
+    "angrerettSubtitle": "Rett til å gå fra"
+  },
+  "gdpr": {
+    "heading": "Forespørsel om GDPR-rettigheter",
+    "description": "Lag forespørsler etter personvernforordningen artikkel 14 (innsyn) og artikkel 17 (sletting) på ett sted.",
+    "formAria": "Detaljer for GDPR-forespørsel",
+    "previewAria": "Forhåndsvisning for GDPR-brev",
+    "copyButtonLabel": "Kopier brev",
+    "form": {
+      "requestType": {
+        "label": "Forespørselstype",
+        "options": [
+          { "value": "information", "label": "Artikkel 14 – Retten til informasjon" },
+          { "value": "erasure", "label": "Artikkel 17 – Retten til sletting" }
+        ]
+      },
+      "controllerName": {
+        "label": "Behandlingsansvarlig",
+        "placeholder": "Eksempel AS"
+      },
+      "controllerAddress": {
+        "label": "Adresse til behandlingsansvarlig",
+        "placeholder": "Gate 1\n0123 Oslo"
+      },
+      "controllerEmail": {
+        "label": "Kontakt-e-post (valgfritt)",
+        "placeholder": "personvern@eksempel.no"
+      },
+      "subjectName": {
+        "label": "Ditt navn",
+        "placeholder": "Ola Nordmann"
+      },
+      "subjectAddress": {
+        "label": "Din adresse",
+        "placeholder": "Gate 2\n0456 Oslo"
+      },
+      "referenceId": {
+        "label": "Kunde- eller referansenummer (valgfritt)",
+        "placeholder": "Kundenummer 12345"
+      },
+      "dataSource": {
+        "label": "Hvordan virksomheten fikk opplysningene (valgfritt)",
+        "placeholder": "f.eks. kjøpt fra markedsføringsliste"
+      },
+      "requestDate": {
+        "label": "Dato"
+      },
+      "sections": {
+        "request": "Forespørsel",
+        "subject": "Om deg",
+        "controller": "Om behandlingsansvarlig",
+        "context": "Tilleggsinformasjon"
+      }
+    },
+    "legal": {
+      "heading": "Rettslig grunnlag",
+      "items": [
+        "Personvernforordningen (EU) 2016/679 artikkel 14",
+        "Artikkel 12: krav til klarhet og frister",
+        "Artikkel 15: rett til innsyn i egne opplysninger",
+        "Artikkel 17: retten til sletting (\"retten til å bli glemt\")",
+        "Artikkel 19: plikt til å varsle om sletting eller retting"
+      ]
+    },
+    "placeholders": {
+      "controllerName": "[Navn på behandlingsansvarlig]",
+      "controllerAddress": "[Adresse]",
+      "subjectName": "[Ditt navn]",
+      "subjectAddress": "[Din adresse]",
+      "requestDate": "[Dato]"
+    },
+    "templates": {
+      "information": {
+        "subjectLine": "Emne: Innsynsrett etter personvernforordningen artikkel 14",
+        "intro": "Jeg kontakter dere for å utøve min rett til informasjon etter personvernforordningen (GDPR) artikkel 14, som gjelder innsamling av personopplysninger om meg fra andre kilder enn meg selv.",
+        "referenceLine": "Referanse: {{referenceId}}",
+        "requestListIntro": "Jeg ber om at dere innenfor fristen i artikkel 12 nr. 3 gir meg følgende opplysninger:",
+        "bulletItems": [
+          "hvilke kategorier av personopplysninger dere behandler om meg",
+          "hvilke kilder opplysningene stammer fra (og eventuelt opplysninger om kildekategorier)",
+          "deres formål med behandlingen og behandlingsgrunnlag",
+          "hvilke mottakere eller mottakerkategorier som har fått eller vil få tilgang til opplysningene",
+          "planlagte lagringsperioder eller kriterier som brukes for å fastsette lagringsperioden",
+          "hvilke rettigheter jeg har, inkludert retten til innsyn, retting, sletting, begrensning av behandling, protest og dataportabilitet",
+          "retten til å klage til Datatilsynet",
+          "eventuell automatisert beslutningstaking eller profilering og hvordan det fungerer"
+        ],
+        "dataSourceLine": "Så vidt jeg kjenner til, ble opplysningene innhentet via: {{dataSource}}.",
+        "postListParagraphs": [
+          "{{dataSourceLine}}Videre ber jeg om kopi av personopplysningene som behandles, jf. artikkel 15.",
+          "Dersom dere trenger ytterligere informasjon for å bekrefte min identitet, ber jeg om at dere opplyser om det så raskt som mulig. Jeg foreslår at all kommunikasjon skjer per e-post eller annet sikkert medium.",
+          "På forhånd takk for hjelpen. Jeg ser frem til svar innenfor den lovpålagte fristen."
+        ],
+        "signoff": "Med vennlig hilsen"
+      },
+      "erasure": {
+        "subjectLine": "Emne: Begjæring om sletting etter personvernforordningen artikkel 17",
+        "referenceLine": "Referanse: {{referenceId}}",
+        "paragraphs": [
+          "Jeg ber herved om umiddelbar sletting av alle personopplysninger om meg i samsvar med personvernforordningen artikkel 17.",
+          "Vennligst slett alle personopplysninger om meg slik de er definert i artikkel 4 nr. 1, og send bekreftelse når dette er gjennomført.",
+          "Hvis jeg tidligere har samtykket til behandlingen av mine personopplysninger, trekker jeg dette samtykket tilbake med øyeblikkelig virkning for hele behandlingen.",
+          "Jeg mener vilkårene i artikkel 17 nr. 1 er oppfylt. Ingen av unntakene i artikkel 17 nr. 3 kommer til anvendelse, særlig fordi jeg ikke er en offentlig person.",
+          "Dersom opplysningene er gjort offentlig, forplikter artikkel 17 nr. 2 dere til å treffe rimelige tiltak for å informere andre behandlingsansvarlige, inkludert søkemotorer, om at jeg krever sletting av lenker, kopier og gjengivelser. Dette gjelder også avledede versjoner.",
+          "Dersom opplysningene er videreformidlet til tredjeparter, pålegger artikkel 19 dere å varsle hver mottaker om denne slettingen og eventuelle referanser. Vennligst informer meg om hvilke mottakere som blir varslet.",
+          "Bekreft mottak av denne forespørselen og sletting så snart som mulig."
+        ],
+        "signoff": "Med vennlig hilsen"
+      }
+    }
+  },
+  "angrerett": {
+    "heading": "Angrerett (Norge)",
+    "description": "Lag et angrerettbrev etter angrerettloven av 20. juni 2014 nr. 27.",
+    "formAria": "Detaljer for angrerettbrev",
+    "previewAria": "Forhåndsvisning av angrerettbrev",
+    "copyButtonLabel": "Kopier brev",
+    "form": {
+      "agreementType": {
+        "label": "Avtaletype",
+        "options": [
+          { "value": "service", "label": "Tjeneste / abonnement" },
+          { "value": "purchase", "label": "Kjøp av vare" }
+        ]
+      },
+      "companyName": {
+        "label": "Selger eller tjenesteyter",
+        "placeholder": "Eksempel AS"
+      },
+      "accountRef": {
+        "label": "Konto/kundereferanse",
+        "placeholder": "E-post eller kundenummer"
+      },
+      "agreementDate": {
+        "label": "Dato for avtale/kjøp"
+      },
+      "itemDescription": {
+        "label": "Produkt eller tjeneste (valgfritt)",
+        "placeholder": "Beskrivelse av varen eller tjenesten"
+      },
+      "deliveryDate": {
+        "label": "Dato for mottak/oppstart (valgfritt)"
+      },
+      "customerName": {
+        "label": "Navn",
+        "placeholder": "Ola Nordmann"
+      },
+      "todayDate": {
+        "label": "Dato i dag"
+      },
+      "sections": {
+        "request": "Avtaledetaljer",
+        "partner": "Selger/tjenesteyter",
+        "purchase": "Kjøpsdetaljer",
+        "customer": "Om deg"
+      }
+    },
+    "formHint": "Ingen av opplysningene lagres. Brevet genereres kun i nettleseren din.",
+    "legal": {
+      "heading": "Rettslig grunnlag",
+      "items": [
+        "Angrerettloven av 20. juni 2014 nr. 27 § 20 første ledd",
+        "§ 24: tilbakebetaling ved bruk av angrerett",
+        "§ 25: forbrukerens plikt til å levere tilbake varer",
+        "§ 26: selgers plikt til tilbakebetaling"
+      ]
+    },
+    "placeholders": {
+      "companyName": "[Selger/tjenesteyter]",
+      "accountRef": "[Kundereferanse]",
+      "agreementDate": "[Dato for avtale/kjøp]",
+      "deliveryDate": "[Dato for mottak]",
+      "itemDescription": "[Produkt eller tjeneste]",
+      "customerName": "[Navn]",
+      "todayDate": "[Dato]"
+    },
+    "templates": {
+      "service": "Hei,\n\nJeg viser til min inngåtte avtale om abonnement på {{company}} (konto: {{account}}), inngått den {{agreementDate}}.\n\nI henhold til angrerettloven av 20. juni 2014 nr. 27, meddeler jeg herved utvetydig at jeg utøver min angrerett og dermed trer tilbake fra avtalen, jf. lovens § 20 første ledd.\n\nJeg ber om at avtalen anses hevet fra det tidspunkt denne meddelelsen er mottatt, og at alle eventuelt innbetalte beløp tilbakeføres i samsvar med angrerettlovens bestemmelser. Videre ber jeg om skriftlig bekreftelse på at min melding om tilbaketreden er registrert, samt bekreftelse på tilbakebetaling og avslutning av abonnementet.\n\nDersom det kreves utfylling av et særskilt skjema eller ytterligere informasjon for å fullføre prosessen, ber jeg om at dette blir oversendt uten ugrunnet opphold.\n\nMed vennlig hilsen\n{{customer}}\n{{today}}",
+      "purchase": "Hei,\n\nJeg viser til mitt kjøp hos {{company}} (referanse: {{account}}), bestilt den {{agreementDate}}{{deliverySegment}}. Kjøpet gjelder {{itemDescription}}.\n\nI henhold til angrerettloven av 20. juni 2014 nr. 27 meddeler jeg herved at jeg utøver angreretten og går fra kjøpsavtalen, jf. § 20 første ledd.\n\nJeg ber om at avtalen annulleres og at tilbakebetaling skjer uten ugrunnet opphold og senest innen 14 dager, jf. §§ 24 og 26. Vennligst oppgi praktisk informasjon om hvordan varen skal returneres, i tråd med § 25.\n\nDersom dere trenger ytterligere opplysninger eller krever utfylling av et angrerettskjema, ber jeg om at dette sendes meg umiddelbart.\n\nMed vennlig hilsen\n{{customer}}\n{{today}}",
+      "deliverySegment": ", mottatt {{deliveryDate}}"
+    }
+  },
+  "notifications": {
+    "copySuccess": "Kopiert!",
+    "copyError": "Feil ved kopiering",
+    "copyLogError": "Kunne ikke kopiere"
+  }
+}

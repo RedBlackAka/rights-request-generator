@@ -1,0 +1,203 @@
+{
+  "languageName": "English",
+  "dateLocale": "en-GB",
+  "app": {
+    "pageTitle": "Rights Request Generator",
+    "title": "Rights Request Generator",
+    "tagline": "Create privacy and consumer rights letters without your details ever leaving the browser.",
+    "languageLabel": "Language",
+    "tabNavAria": "Choose a letter template category",
+    "footerNote": "No data is stored or sent to a server. Everything you type stays in your browser."
+  },
+  "tabs": {
+    "gdpr": "GDPR Rights",
+    "gdprSubtitle": "Art. 14 & 17 letters",
+    "angrerett": "Norwegian Right to Cancel",
+    "angrerettSubtitle": "Right to cancel"
+  },
+  "gdpr": {
+    "heading": "GDPR rights request",
+    "description": "Generate GDPR Article 14 information requests or Article 17 erasure requests in one place.",
+    "formAria": "Details for GDPR request",
+    "previewAria": "Preview of GDPR request letter",
+    "copyButtonLabel": "Copy letter",
+    "form": {
+      "requestType": {
+        "label": "Request type",
+        "options": [
+          { "value": "information", "label": "Article 14 – Right to information" },
+          { "value": "erasure", "label": "Article 17 – Right to erasure" }
+        ]
+      },
+      "controllerName": {
+        "label": "Data controller",
+        "placeholder": "Example Corp"
+      },
+      "controllerAddress": {
+        "label": "Controller address",
+        "placeholder": "123 Example Street\n0123 City"
+      },
+      "controllerEmail": {
+        "label": "Contact email (optional)",
+        "placeholder": "privacy@example.com"
+      },
+      "subjectName": {
+        "label": "Your name",
+        "placeholder": "Jane Doe"
+      },
+      "subjectAddress": {
+        "label": "Your address",
+        "placeholder": "456 Sample Road\n0123 City"
+      },
+      "referenceId": {
+        "label": "Account or reference (optional)",
+        "placeholder": "Account 12345"
+      },
+      "dataSource": {
+        "label": "How they obtained your data (if known)",
+        "placeholder": "e.g. purchased from a marketing list"
+      },
+      "requestDate": {
+        "label": "Date"
+      },
+      "sections": {
+        "request": "Request setup",
+        "subject": "About you",
+        "controller": "About the controller",
+        "context": "Additional details"
+      }
+    },
+    "legal": {
+      "heading": "Legal references",
+      "items": [
+        "General Data Protection Regulation (EU) 2016/679, Article 14",
+        "Article 12: transparency requirements and timelines",
+        "Article 15: right of access for the data subject",
+        "Article 17: right to erasure (‘right to be forgotten’)",
+        "Article 19: notification obligation regarding rectification or erasure"
+      ]
+    },
+    "placeholders": {
+      "controllerName": "[Data controller]",
+      "controllerAddress": "[Address]",
+      "subjectName": "[Your name]",
+      "subjectAddress": "[Your address]",
+      "requestDate": "[Date]"
+    },
+    "templates": {
+      "information": {
+        "subjectLine": "Subject: Right of access under GDPR Article 14",
+        "intro": "I am contacting you to exercise my right to information under the General Data Protection Regulation (GDPR) Article 14, which covers personal data about me obtained from sources other than myself.",
+        "referenceLine": "Reference: {{referenceId}}",
+        "requestListIntro": "Please provide the following information within the time limit in Article 12(3):",
+        "bulletItems": [
+          "the categories of personal data you process about me",
+          "the source of that data (and, if applicable, the type of source)",
+          "the purposes of the processing and the legal basis relied upon",
+          "the recipients or categories of recipients who have received or will receive the data",
+          "the planned retention periods or the criteria used to determine those periods",
+          "the rights available to me, including access, rectification, erasure, restriction, objection, and data portability",
+          "my right to lodge a complaint with the supervisory authority",
+          "any automated decision-making or profiling, including meaningful information about the logic involved"
+        ],
+        "dataSourceLine": "To the best of my knowledge, the data was obtained via: {{dataSource}}.",
+        "postListParagraphs": [
+          "{{dataSourceLine}}I also request a copy of the personal data being processed, pursuant to Article 15.",
+          "If you require additional information to confirm my identity, please let me know as soon as possible. I would prefer to receive your response by email or another secure channel.",
+          "Thank you for your assistance. I look forward to your response within the statutory deadline."
+        ],
+        "signoff": "Kind regards"
+      },
+      "erasure": {
+        "subjectLine": "Subject: Request for erasure under GDPR Article 17",
+        "referenceLine": "Reference: {{referenceId}}",
+        "paragraphs": [
+          "I am hereby requesting immediate erasure of all personal data concerning me in accordance with Article 17 GDPR.",
+          "Please erase all personal data concerning me as defined by Article 4(1) GDPR and confirm once this has been completed.",
+          "If I have previously given consent to the processing of my personal data, I am withdrawing that consent for the entire processing activity effective immediately.",
+          "I am of the view that the conditions in Article 17(1) GDPR are fulfilled. No exception in Article 17(3) GDPR applies, in particular because I am not a public figure.",
+          "If you have made the data public, Article 17(2) GDPR obliges you to take all reasonable steps to inform other controllers, including search engine operators, that I have requested the erasure of any links, copies, or replications. This applies to direct copies as well as derivative entries.",
+          "If the data has been disclosed to third parties, Article 19 GDPR requires you to communicate this erasure request, including any references to the data, to each recipient. Please also inform me of those recipients.",
+          "Please acknowledge receipt of this request and confirm the erasure at your earliest convenience."
+        ],
+        "signoff": "Kind regards"
+      }
+    }
+  },
+  "angrerett": {
+    "heading": "Norwegian right to cancel",
+    "description": "Generate a cancellation letter under the Norwegian Right of Withdrawal Act of 20 June 2014 no. 27.",
+    "formAria": "Details for Norwegian right to cancel letter",
+    "previewAria": "Preview of the cancellation letter",
+    "copyButtonLabel": "Copy letter",
+    "form": {
+      "agreementType": {
+        "label": "Type of agreement",
+        "options": [
+          { "value": "service", "label": "Service / subscription" },
+          { "value": "purchase", "label": "Product purchase" }
+        ]
+      },
+      "companyName": {
+        "label": "Seller or provider",
+        "placeholder": "Example Ltd"
+      },
+      "accountRef": {
+        "label": "Account / customer reference",
+        "placeholder": "Email or customer number"
+      },
+      "agreementDate": {
+        "label": "Date of agreement / purchase"
+      },
+      "itemDescription": {
+        "label": "Product or service (optional)",
+        "placeholder": "Description of the item or service"
+      },
+      "deliveryDate": {
+        "label": "Date of delivery / start (optional)"
+      },
+      "customerName": {
+        "label": "Name",
+        "placeholder": "Jane Doe"
+      },
+      "todayDate": {
+        "label": "Today's date"
+      },
+      "sections": {
+        "request": "Agreement details",
+        "partner": "Seller / provider",
+        "purchase": "Purchase information",
+        "customer": "About you"
+      }
+    },
+    "formHint": "No information is stored. The letter is generated only in your browser.",
+    "legal": {
+      "heading": "Legal references",
+      "items": [
+        "Right of Withdrawal Act of 20 June 2014 no. 27, section 20 first paragraph",
+        "Section 24: refund obligations when the right is exercised",
+        "Section 25: consumer's duty to return goods",
+        "Section 26: trader's duty to refund"
+      ]
+    },
+    "placeholders": {
+      "companyName": "[Seller/service provider]",
+      "accountRef": "[Customer reference]",
+      "agreementDate": "[Agreement date]",
+      "deliveryDate": "[Delivery date]",
+      "itemDescription": "[Product or service]",
+      "customerName": "[Name]",
+      "todayDate": "[Date]"
+    },
+    "templates": {
+      "service": "Hello,\n\nI refer to my subscription agreement with {{company}} (account: {{account}}), entered into on {{agreementDate}}.\n\nUnder the Norwegian Right of Withdrawal Act of 20 June 2014 no. 27, I hereby unequivocally exercise my right of withdrawal and terminate the agreement, cf. section 20 first paragraph.\n\nI request that the agreement be considered cancelled from the time this notice is received and that any amounts paid be refunded in accordance with the Act. Please confirm in writing that my withdrawal has been registered, and confirm the refund and termination of the subscription.\n\nIf you require a specific form or any additional information to complete the process, please send it to me without undue delay.\n\nKind regards\n{{customer}}\n{{today}}",
+      "purchase": "Hello,\n\nI refer to my purchase from {{company}} (reference: {{account}}), ordered on {{agreementDate}}{{deliverySegment}}. The purchase concerns {{itemDescription}}.\n\nUnder the Norwegian Right of Withdrawal Act of 20 June 2014 no. 27, I hereby exercise the right of withdrawal and cancel the sales contract, cf. section 20 first paragraph.\n\nI request that the agreement be cancelled and that a refund is provided without undue delay and no later than 14 days, cf. sections 24 and 26. Please let me know how to return the goods in accordance with section 25.\n\nIf you require any additional information or a specific withdrawal form, please send it to me immediately.\n\nKind regards\n{{customer}}\n{{today}}",
+      "deliverySegment": ", received {{deliveryDate}}"
+    }
+  },
+  "notifications": {
+    "copySuccess": "Copied!",
+    "copyError": "Error while copying",
+    "copyLogError": "Unable to copy"
+  }
+}
