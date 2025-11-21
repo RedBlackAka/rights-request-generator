@@ -38,6 +38,9 @@ docker run -p 3000:3000 ghcr.io/kf637/rights-request-generator
 
 Visit `http://localhost:3000` to use the generator.
 
+## Demo
+
+Go to `https://rights-request.kf637.tech`
 
 ## Localization
 
